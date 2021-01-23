@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PortalForRetiredExperienced.Models.JobListModel>
+
+@{
+    ViewData["Title"] = "JobList";
+}
+<section class="job-area job-area-two pt-100">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-6">
+                    <div class="job-item wow fadeInUp" data-wow-delay=".4s">
+                        <img src="~/Design/img/home-1/jobs/2.png" alt="Job">
+                        <div class="job-inner align-items-center">
+                            <div class="job-inner-left">
+                                <h3>
+                                    @Html.DisplayFor(modelItem => item.JobTitle)
+                                </h3>
+                                <a herf="@Html.DisplayFor(modelItem => item.CompanyDetails.WebAddress)">@Html.DisplayFor(modelItem => item.CompanyDetails.CompanyName)</a>
+                                <ul>
+                                    <li>
+                                        <i class="icofont-money-bag"></i>
+                                        @Html.DisplayFor(modelItem => item.Salary)
+                                    </li>
+                                    <li>
+                                        <i class="icofont-location-pin"></i>
+                                        @Html.DisplayFor(modelItem => item.Location)
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="job-inner-right">
+                                <ul>
+                                    <li>
+                                        <a href="create-account.html">Apply</a>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            @Html.DisplayFor(modelItem => item.JobNature)
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>Last Date : @Html.DisplayFor(modelItem => item.DateTime)  </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+    </section>
