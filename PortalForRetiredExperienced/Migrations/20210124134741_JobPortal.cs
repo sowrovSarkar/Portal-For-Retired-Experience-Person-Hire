@@ -3,12 +3,27 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PortalForRetiredExperienced.Migrations
 {
-    public partial class joblist : Migration
+    public partial class JobPortal : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CompanyDetailsModel",
+                name: "CandidateList",
+                columns: table => new
+                {
+                    Ca_id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CandidateName = table.Column<string>(nullable: true),
+                    Profession = table.Column<string>(nullable: true),
+                    ProfileLink = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CandidateList", x => x.Ca_id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CompanyList",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -23,7 +38,7 @@ namespace PortalForRetiredExperienced.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CompanyDetailsModel", x => x.Id);
+                    table.PrimaryKey("PK_CompanyList", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,9 +59,9 @@ namespace PortalForRetiredExperienced.Migrations
                 {
                     table.PrimaryKey("PK_JobListModels", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_JobListModels_CompanyDetailsModel_CompanyDetailsId",
+                        name: "FK_JobListModels_CompanyList_CompanyDetailsId",
                         column: x => x.CompanyDetailsId,
-                        principalTable: "CompanyDetailsModel",
+                        principalTable: "CompanyList",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -60,10 +75,13 @@ namespace PortalForRetiredExperienced.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "CandidateList");
+
+            migrationBuilder.DropTable(
                 name: "JobListModels");
 
             migrationBuilder.DropTable(
-                name: "CompanyDetailsModel");
+                name: "CompanyList");
         }
     }
 }

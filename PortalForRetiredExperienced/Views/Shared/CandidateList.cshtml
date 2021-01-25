@@ -1,47 +1,34 @@
-﻿<div class="page-title-area">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="container">
-                <div class="page-title-text">
-                    <h2>Candidate List</h2>
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <i class="icofont-simple-right"></i>
-                        </li>
-                        <li>Candidate List</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Page Title -->
-<!-- Profile -->
+﻿@model IEnumerable<PortalForRetiredExperienced.Models.CandidateListModel>
+
+@{
+    ViewData["Title"] = "CandidateList";
+}
+
 <section class="profile-area profile-area-two pt-100">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-lg-3">
-                <div class="profile-item wow fadeInUp" data-wow-delay=".3s">
-                    <img src="~/Design/img/MyProfile.jpg" alt="Profile">
-                    <div class="profile-inner">
-                        <h3>Md Sowrov Sarkar</h3>
-                        <span>Business Consultant</span>
-                        <a href="candidate-details.html">
-                            View Profile
-                            <i class="icofont-swoosh-right"></i>
-                        </a>
-                        <div class="profile-heart">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 col-lg-3">
+                    <div class="profile-item wow fadeInUp" data-wow-delay=".3s">
+                        <img src="~/Design/img/MyProfile.jpg" alt="Profile">
+                        <div class="profile-inner">
+                            <h3>
+                                @Html.DisplayFor(modelItem => item.CandidateName)
+                            </h3>
+                            <span>Business Consultant</span>
+                            <h3>
+                                @Html.DisplayFor(modelItem => item.Profession)
+                            </h3>
                             <a href="candidate-details.html">
-                                <i class="icofont-heart-alt"></i>
+                                <h3>
+                                    @Html.DisplayFor(modelItem => item.ProfileLink)
+                                </h3>
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            
+            }
         </div>
     </div>
 </section>

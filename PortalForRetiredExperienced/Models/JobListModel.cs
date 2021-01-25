@@ -14,11 +14,12 @@ namespace PortalForRetiredExperienced.Models
         public string Salary { get; set; }
         public string Location { get; set; }
         public DateTime DateTime { get; set; }
-        public CompanyDetailsModel CompanyDetails { get; set; }
+        public string JobType { get; set; }
+        public CompanyList CompanyDetails { get; set; }
 
         public JobListModel()
         {
-            CompanyDetails = new CompanyDetailsModel();
+            CompanyDetails = new CompanyList();
         }
 
     }

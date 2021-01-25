@@ -8,15 +8,8 @@ namespace PortalForRetiredExperienced.Models
 {
     public class Applicant
     {
-        public Applicant()
-        {
-            //this.EmployerSelectsSeekers = new HashSet<EmployerSelectsSeeker>();
-            //this.Jobs = new HashSet<Job>();
-            //this.JobAppoinments = new HashSet<JobAppoinment>();
-            //this.JobSeekers = new HashSet<JobSeeker>();
-        }
-
-        public int EmployerId { get; set; }
+        [Key]
+        public int Em_Id { get; set; }
 
         [Required(ErrorMessage = "User Name is Required")]
         public string EmployerUsername { get; set; }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PortalForRetiredExperienced.Models
 {
-    public class CompanyDetailsModel
+    public class CompanyList
     {
         public int Id { get; set; }
         public string CompanyName { get; set; }

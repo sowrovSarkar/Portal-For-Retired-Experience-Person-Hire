@@ -26,13 +26,7 @@ namespace PortalForRetiredExperienced.Controllers
         {
             return View();
         }  
-       
-        public IActionResult Contact()
-        {
-            return View();
-        }
-      
-        public IActionResult Privacy()
+         public IActionResult Privacy()
         {
             return View();
         }

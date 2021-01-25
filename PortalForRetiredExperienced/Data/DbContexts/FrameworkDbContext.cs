@@ -19,5 +19,14 @@ namespace PortalForRetiredExperienced.Data.DbContexts
         }
 
        public DbSet<JobListModel> JobListModels { get; set; }
+
+       public DbSet<CandidateListModel> CandidateList { get; set; }
+
+       public DbSet<CompanyList> CompanyList { get; set; }
+
+       public DbSet<Applicant> Applicant { get; set; }
+
+       public DbSet<PortalForRetiredExperienced.Models.Contact> Contact { get; set; }
+
     }
 }

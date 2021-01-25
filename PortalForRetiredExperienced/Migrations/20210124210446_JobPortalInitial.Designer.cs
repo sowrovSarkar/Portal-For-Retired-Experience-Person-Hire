@@ -10,8 +10,8 @@ using PortalForRetiredExperienced.Data.DbContexts;
 namespace PortalForRetiredExperienced.Migrations
 {
     [DbContext(typeof(FrameworkDbContext))]
-    [Migration("20210123223558_joblist")]
-    partial class joblist
+    [Migration("20210124210446_JobPortalInitial")]
+    partial class JobPortalInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,66 @@ namespace PortalForRetiredExperienced.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("PortalForRetiredExperienced.Models.CompanyDetailsModel", b =>
+            modelBuilder.Entity("PortalForRetiredExperienced.Models.Applicant", b =>
+                {
+                    b.Property<int>("Em_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerContactNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerUsername")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfilePictureName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Em_Id");
+
+                    b.ToTable("Applicant");
+                });
+
+            modelBuilder.Entity("PortalForRetiredExperienced.Models.CandidateListModel", b =>
+                {
+                    b.Property<int>("Ca_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CandidateName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Profession")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfileLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Ca_id");
+
+                    b.ToTable("CandidateList");
+                });
+
+            modelBuilder.Entity("PortalForRetiredExperienced.Models.CompanyList", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +110,7 @@ namespace PortalForRetiredExperienced.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CompanyDetailsModel");
+                    b.ToTable("CompanyList");
                 });
 
             modelBuilder.Entity("PortalForRetiredExperienced.Models.JobListModel", b =>
@@ -76,6 +135,9 @@ namespace PortalForRetiredExperienced.Migrations
                     b.Property<string>("JobTitle")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("JobType")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
@@ -91,7 +153,7 @@ namespace PortalForRetiredExperienced.Migrations
 
             modelBuilder.Entity("PortalForRetiredExperienced.Models.JobListModel", b =>
                 {
-                    b.HasOne("PortalForRetiredExperienced.Models.CompanyDetailsModel", "CompanyDetails")
+                    b.HasOne("PortalForRetiredExperienced.Models.CompanyList", "CompanyDetails")
                         .WithMany()
                         .HasForeignKey("CompanyDetailsId");
                 });
