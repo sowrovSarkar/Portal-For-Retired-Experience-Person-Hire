@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PortalForRetiredExperienced.Models.CompanyList>
+
+@*<section class="companies-area companies-area-two pt-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="companies-item wow fadeInUp" data-wow-delay=".3s">
+                        <img src="~/Design/img/home-1/companies/1.png" alt="Companies">
+                        <h3>
+                            <a href="company-details.html">Vai-Vanger.com</a>
+                        </h3>
+                        <p>
+                            <i class="icofont-location-pin"></i>
+                            Dhaka,Bangladesh
+                        </p>
+                        <a class="companies-btn" href="create-account.html">Hiring</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>*@
+
+
+<section class="companies-area companies-area-two pt-100">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 col-lg-3">
+                    <div class="companies-item wow fadeInUp" data-wow-delay=".3s">
+                        <img src="~/images/@item.Logo" alt="Companies">
+                        <h3>
+                            <a asp-action="Details" asp-route-id="@item.Id">@item.CompanyName</a>
+                        </h3>
+                        <p>
+                            <i class="icofont-location-pin"></i>
+                            @item.Location
+                        </p>
+                        <a class="companies-btn"asp-action="Details" asp-route-id="@item.Id"> >Details</a>
+                    </div>
+                </div>
+            }
+            </div>
+    </div>
+</section>

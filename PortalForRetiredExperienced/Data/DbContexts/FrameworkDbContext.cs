@@ -28,5 +28,7 @@ namespace PortalForRetiredExperienced.Data.DbContexts
 
        public DbSet<PortalForRetiredExperienced.Models.Contact> Contact { get; set; }
 
+       public DbSet<PortalForRetiredExperienced.Models.Profile> Profile { get; set; }
+
     }
 }

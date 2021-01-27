@@ -28,7 +28,7 @@ namespace PortalForRetiredExperienced.Controllers
         {
             return View(await _context.Contact.ToListAsync());
         }
-
+        
         // GET: Contacts/Details/5
         public async Task<IActionResult> Details(int? id)
         {

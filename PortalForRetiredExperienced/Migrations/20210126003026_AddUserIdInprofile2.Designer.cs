@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PortalForRetiredExperienced.Data.DbContexts;
 
 namespace PortalForRetiredExperienced.Migrations
 {
     [DbContext(typeof(FrameworkDbContext))]
-    partial class FrameworkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210126003026_AddUserIdInprofile2")]
+    partial class AddUserIdInprofile2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

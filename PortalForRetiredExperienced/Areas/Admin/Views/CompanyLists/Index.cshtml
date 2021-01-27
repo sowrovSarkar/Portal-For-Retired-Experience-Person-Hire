@@ -44,7 +44,10 @@
                 @Html.DisplayFor(modelItem => item.CompanyName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Logo)
+                <img src="~/images/@item.Logo"
+                     class="rounded-circle"
+                     height="40" width="40"
+                     asp-append-version="true" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location)

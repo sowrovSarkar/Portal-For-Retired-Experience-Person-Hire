@@ -30,15 +30,18 @@
                     <li class="nav-item">
                         <a asp-action="Contact"asp-controller="Contacts" class="nav-link">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a asp-action="Profile"asp-controller="Profiles" class="nav-link">Profile</a>
+                    </li>
                 </ul>
                 <div class="common-btn">
-                    <a class="login-btn" a asp-controller="Registration"asp-action="Index">
+                    <a class="login-btn" a asp-area="Identity" asp-page="/Account/Register">
                         <i class="icofont-plus-square"></i>
-                        Login
-                    </a>
-                    <a class="sign-up-btn" a asp-controller="Registration"asp-action="Index">
-                        <i class="icofont-user-alt-4"></i>
                         Sign Up
+                    </a>
+                    <a class="sign-up-btn" a asp-area="Identity" asp-page="/Account/Login">
+                        <i class="icofont-user-alt-4"></i>
+                        Login
                     </a>
                 </div>
             </div>
